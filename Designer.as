@@ -75,7 +75,7 @@ package
 		public var OpenButton:Button;
 		public var SaveButton:Button;
 		public var DisplayObjectPickerList:PickerList;
-		public var PickerString:Vector.<String> = new <String>["Starling.Image", "Starling.Button", "Feathers.Scale9Button", "Feathers.Scale9Image"];
+		public var PickerString:Vector.<String> = new <String>["Starling.Image", "Starling.Button", "Feathers.Scale9Button", "Feathers.Scale9Image", "Feathers.Scale3Button", "Feathers.scale3Image"];
 		public var searchInput:TextInput;
 		public var TextureTab:TabBar;
 		public var TextureList:List;
@@ -118,9 +118,9 @@ package
 		public var AlphaLabel:Label;
 		public var AlphaInput:TextInput;
 		public var AlphaSlider:Slider;
+		public var colorPicker:ColorPicker;
 		public var ColorLabel:Label;
 		public var ColorInput:TextInput;
-		public var ColorIdentifier:Quad;
 		
 		public function Designer()
 		{
@@ -223,6 +223,8 @@ package
 				{text: "Starling.Button"},
 				{text: "feathers.scale9Button"},
 				{text: "feathers.scale9Image"},
+				{text: "feathers.scale3Button"},
+				{text: "feathers.scale3Image"},
 			]);
 			DisplayObjectPickerList.listProperties.itemRendererFactory = function():IListItemRenderer
 			{
@@ -589,6 +591,12 @@ package
 			AlphaInput.text = String(AlphaSlider.value);
 			PanelRight.addChild(AlphaInput);
 			
+			colorPicker = new ColorPicker();
+			ColorPicker._Designer = this;
+			colorPicker.x = 160;
+			colorPicker.y = 195;
+			PanelRight.addChild(colorPicker);
+			
 			ColorLabel = new Label();
 			ColorLabel.text = "Color :";
 			ColorLabel.x = 10;
@@ -605,15 +613,11 @@ package
 			ColorInput.addEventListener(Event.CHANGE, onColorInputTextChange);
 			PanelRight.addChild(ColorInput);
 			
-			ColorIdentifier = new Quad(20, 20, uint(ColorInput.text));
-			ColorIdentifier.x = 160;
-			ColorIdentifier.y = 195;
-			PanelRight.addChild(ColorIdentifier);
 		}
 		
 		private function onColorInputTextChange(e:Event):void 
 		{
-			ColorIdentifier.color = uint(ColorInput.text);
+			colorPicker.value = uint(ColorInput.text);
 		}
 		
 		private function AlphaChangeHandler(e:Event):void 

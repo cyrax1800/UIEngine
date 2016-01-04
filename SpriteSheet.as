@@ -18,12 +18,6 @@ package
 			Bg = new Quad(1024, 600);
 			this.addChild(Bg);
 			
-			var X:Quad = new Quad(200, 200,0);
-			X.addEventListener(TouchEvent.TOUCH, onItemTouch);
-			X.x = 500;
-			X.y = 100;
-			this.addChild(X);
-			
 			this.width = 1024;
 			this.height = 600;
 			this.addEventListener(TouchEvent.TOUCH, onSheetTouch);
