@@ -139,7 +139,7 @@ package
 			SearchListDataProvider = new ListCollection();
 			SearchListDataProviderIndex = new Vector.<int>();
 			
-			Text = new Image(UIAtlas.getTexture("back-button-disabled-skin0000"));
+			//Text = new Image(UIAtlas.getTexture("back-button-disabled-skin0000"));
 			
 			initSheet();
 			initLeftPanel();

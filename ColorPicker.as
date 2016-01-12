@@ -138,9 +138,9 @@ package  {
 			tween.fadeTo(1);
 			Starling.juggler.add(tween);
 			tween.onComplete = function(){
-								Starling.juggler.remove(tween);
-								palette.addEventListener(TouchEvent.TOUCH, onTouchPalette);
-							};
+				Starling.juggler.remove(tween);
+				palette.addEventListener(TouchEvent.TOUCH, onTouchPalette);
+			};
 		}
  
 		private function hidePalette():void {
